@@ -18,7 +18,8 @@
 */
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
+import ReactPixel from "react-facebook-pixel";
 
 // styles
 import "bootstrap/scss/bootstrap.scss";
@@ -30,10 +31,14 @@ import NucleoIcons from "views/NucleoIcons.js";
 import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
+import Documentation from "views/docs/Documentation.js";
 // others
+ReactPixel.init("111649226022273");
+ReactPixel.pageView();
+ReactPixel.fbq("track", "PageView");
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter>
     <Switch>
       <Route path="/index" render={(props) => <Index {...props} />} />
       <Route
@@ -52,8 +57,13 @@ ReactDOM.render(
         path="/register-page"
         render={(props) => <RegisterPage {...props} />}
       />
+      <Route
+        path="/documentation"
+        render={(props) => <Documentation {...props} />}
+      />
       <Redirect to="/index" />
+      <Redirect from="/" to="/index" />
     </Switch>
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById("root")
 );

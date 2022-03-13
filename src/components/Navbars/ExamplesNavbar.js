@@ -23,6 +23,7 @@ import classnames from "classnames";
 
 // reactstrap components
 import {
+  Button,
   Collapse,
   NavbarBrand,
   Navbar,
@@ -30,7 +31,6 @@ import {
   NavLink,
   Nav,
   Container,
-  Button,
 } from "reactstrap";
 
 function ExamplesNavbar() {
@@ -104,10 +104,7 @@ function ExamplesNavbar() {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink
-                href="https://demos.creative-tim.com/paper-kit-react/#/documentation?ref=pkr-examples-navbar"
-                target="_blank"
-              >
+              <NavLink to="/documentation" target="_blank" tag={Link}>
                 <i className="nc-icon nc-book-bookmark" /> Documentation
               </NavLink>
             </NavItem>
